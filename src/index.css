@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-auditorium font-body text-screen;
+  }
+}
+
+@layer components {
+  /** Primary amber action button (sign-in / register / reload). */
+  .btn-primary {
+    @apply w-full rounded-md bg-marquee px-4 py-2.5 text-sm font-semibold text-auditorium transition-colors hover:bg-marquee-press focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-screen disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  /** Amber link with generous hit area. */
+  .link-accent {
+    @apply text-marquee underline-offset-2 hover:text-marquee-press focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marquee;
+  }
+}
+
+/* Single page-load moment: the card rises once. */
+@keyframes curtain-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.curtain-in {
+  animation: curtain-in 0.5s cubic-bezier(0.22, 0.6, 0.24, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .curtain-in {
+    animation: none;
+  }
+}
