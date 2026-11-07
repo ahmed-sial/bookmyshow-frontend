@@ -4,6 +4,9 @@ coverage
 *.local
 .env
 
+# agent skills (machine-local tooling)
+.agents/
+
 # editor
 *.swp
 .idea/
